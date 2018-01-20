@@ -9,9 +9,9 @@
 
 %% Retrieve date and model version
 \setDocUpstreamLocation{MagicDraw SysML}
-\setDocUpstreamVersion{72}
+\setDocUpstreamVersion{80}
 
-\date{2018-01-16}
+\date{2018-01-19}
 
 %% Allow arbitrary latex to be inserted at the end of the document.
 %% Define a new version of this command in metadata.tex. It will
@@ -51,57 +51,11 @@
 
 This section contains direct copies of requirements from \citeds{LSE-61}, based on the Level 1 requirements defined in \citeds{LDM-148}.
 
-\subsection{Level-1 Production Completeness}
+\subsection{Data Products}
 
-\label{DMS-L1-REQ-0025}
-\textbf{ID:} DMS-L1-REQ-0025 (Priority: 1b)
+\subsubsection{General Considerations}
 
-\textbf{Specification:} The DMS shall ensure that all images taken by the camera and marked for Level-1 processing are eventually retrieved, archived, and processed even in the event of connectivity failure between downstream Facilities.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0284:
-Level-1 Production Completeness \newline
-
-\subsection{Nightly Data Accessible Within 24 hrs}
-
-\label{DMS-L1-REQ-0002}
-\textbf{ID:} DMS-L1-REQ-0002 (Priority: 1b)
-
-\textbf{Specification:} With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data. Alerts shall be made available within time \textbf{OTT1} (LSR-REQ-0101) from the conclusion of readout of the raw exposures used to generate each alert to the distribution of the alert to community distribution mechanisms.  Solar System Object orbits shall, on average, be calculated before the following night's observing finishes and the results shall be made available within time \textbf{L1PublicT} of those calculations being completed.
-
-\textbf{Discussion:} Because of the processing flow of SSObject orbit determination, meeting the base 24-hours-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0004:
-Nightly Data Accessible Within 24 hrs \newline
-
-\subsection{Simulated Data}
-
-\label{DMS-L1-REQ-0034}
-\textbf{ID:} DMS-L1-REQ-0034 (Priority: 1b)
-
-\textbf{Specification:} The DMS shall provide the ability to inject artificial or simulated data into data products to assess the functional and temporal performance of the production processing software.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0009:
-Simulated Data \newline
-
-\subsection{Level 1 Processing of Special Programs Data}
-
-\label{DMS-L1-REQ-0041}
-\textbf{ID:} DMS-L1-REQ-0041 (Priority: 2)
-
-\textbf{Specification:} All Level 1 processing from special programs shall be completed before data arrives from the following night's observations.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0321:
-Level 1 Processing of Special Programs Data \newline
-
-\subsection{Measurements in catalogs}
+\paragraph{Measurements in catalogs}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0044}
 \textbf{ID:} DMS-L1-REQ-0044 (Priority: 1b)
@@ -115,7 +69,51 @@ Level 1 Processing of Special Programs Data \newline
 DMS-REQ-0347:
 Measurements in catalogs \newline
 
-\subsection{Processed Visit Images}
+\paragraph{Computing Derived Quantities}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0042}
+\textbf{ID:} DMS-L1-REQ-0042 (Priority: 1b)
+
+\textbf{Specification:} Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. These should at least include the ability to calculate the reduced chi-squared of fitted models and make it as easy as possible to calculate color-color diagrams.
+
+\textbf{Discussion:} Example quantities include those used to assess model fit quality or those required for calculating color-magnitude diagrams. Care should be taken to name the derived columns in a clear unambiguous way.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0331:
+Computing Derived Quantities \newline
+
+\paragraph{Maximum Likelihood Values and Covariances}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0043}
+\textbf{ID:} DMS-L1-REQ-0043 (Priority: 1b)
+
+\textbf{Specification:} Quantities delivered by all measurement algorithms shall include maximum likelihood values and covariances.
+
+\textbf{Discussion:} Algorithms for which such values are impossible, will be documented explicitly to declare that the values are unavailable.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0333:
+Maximum Likelihood Values and Covariances \newline
+
+\subsubsection{Level 1 Data Products}
+
+\paragraph{Nightly Data Accessible Within 24 hrs}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0002}
+\textbf{ID:} DMS-L1-REQ-0002 (Priority: 1b)
+
+\textbf{Specification:} With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time \textbf{L1PublicT} (LSR-REQ-0104) of the acquisition of the raw image data. Alerts shall be made available within time \textbf{OTT1} (LSR-REQ-0101) from the conclusion of readout of the raw exposures used to generate each alert to the distribution of the alert to community distribution mechanisms.  Solar System Object orbits shall, on average, be calculated before the following night's observing finishes and the results shall be made available within time \textbf{L1PublicT} of those calculations being completed.
+
+\textbf{Discussion:} Because of the processing flow of SSObject orbit determination, meeting the base 24-hours-after-data-acquisition requirement would be far more challenging than for the other L1 Data Products, but the system throughput has to be good enough such that a back log can not build up.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0004:
+Nightly Data Accessible Within 24 hrs \newline
+
+\paragraph{Processed Visit Images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0007}
 \textbf{ID:} DMS-L1-REQ-0007 (Priority: 1a)
@@ -131,7 +129,7 @@ This aspect of the processing for Special Programs data is specific to each prog
 DMS-REQ-0069:
 Processed Visit Images \newline
 
-\subsubsection{Background Model Calculation}
+\subparagraph{Background Model Calculation}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0008}
 \textbf{ID:} DMS-L1-REQ-0008 (Priority: 1b)
@@ -143,7 +141,7 @@ Processed Visit Images \newline
 DMS-REQ-0327:
 Background Model Calculation \newline
 
-\subsubsection{Generate Photometric Zeropoint for Visit Image}
+\subparagraph{Generate Photometric Zeropoint for Visit Image}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0009}
 \textbf{ID:} DMS-L1-REQ-0009 (Priority: 1b)
@@ -155,7 +153,7 @@ Background Model Calculation \newline
 DMS-REQ-0029:
 Generate Photometric Zeropoint for Visit Image \newline
 
-\subsubsection{Generate PSF for Visit Images}
+\subparagraph{Generate PSF for Visit Images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0010}
 \textbf{ID:} DMS-L1-REQ-0010 (Priority: 1b)
@@ -167,7 +165,7 @@ Generate Photometric Zeropoint for Visit Image \newline
 DMS-REQ-0070:
 Generate PSF for Visit Images \newline
 
-\subsubsection{Generate WCS for Visit Images}
+\subparagraph{Generate WCS for Visit Images}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0011}
 \textbf{ID:} DMS-L1-REQ-0011 (Priority: 1a)
@@ -181,7 +179,7 @@ Generate PSF for Visit Images \newline
 DMS-REQ-0030:
 Generate WCS for Visit Images \newline
 
-\subsubsection{Documenting Image Characterization}
+\subparagraph{Documenting Image Characterization}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0012}
 \textbf{ID:} DMS-L1-REQ-0012 (Priority: 1b)
@@ -195,7 +193,7 @@ Generate WCS for Visit Images \newline
 DMS-REQ-0328:
 Documenting Image Characterization \newline
 
-\subsubsection{Processed Visit Image Content}
+\subparagraph{Processed Visit Image Content}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0013}
 \textbf{ID:} DMS-L1-REQ-0013 (Priority: 1a)
@@ -207,33 +205,7 @@ Documenting Image Characterization \newline
 DMS-REQ-0072:
 Processed Visit Image Content \newline
 
-\subsection{Computing Derived Quantities}
-
-\label{DMS-L1-REQ-0042}
-\textbf{ID:} DMS-L1-REQ-0042 (Priority: 1b)
-
-\textbf{Specification:} Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. These should at least include the ability to calculate the reduced chi-squared of fitted models and make it as easy as possible to calculate color-color diagrams.
-
-\textbf{Discussion:} Example quantities include those used to assess model fit quality or those required for calculating color-magnitude diagrams. Care should be taken to name the derived columns in a clear unambiguous way.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0331:
-Computing Derived Quantities \newline
-
-\subsection{Constraints on Level 1 Special Program Products Generation}
-
-\label{DMS-L1-REQ-0045}
-\textbf{ID:} DMS-L1-REQ-0045 (Priority: 2)
-
-\textbf{Specification: }The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular \textbf{L1PublicT} and \textbf{OTT1}.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0344:
-Constraints on Level 1 Special Program Products Generation \newline
-
-\subsection{Difference Exposures}
+\paragraph{Difference Exposures}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0005}
 \textbf{ID:} DMS-L1-REQ-0005 (Priority: 1b)
@@ -247,7 +219,7 @@ Constraints on Level 1 Special Program Products Generation \newline
 DMS-REQ-0010:
 Difference Exposures \newline
 
-\subsubsection{Difference Exposure Attributes}
+\subparagraph{Difference Exposure Attributes}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0006}
 \textbf{ID:} DMS-L1-REQ-0006 (Priority: 1b)
@@ -259,71 +231,7 @@ Difference Exposures \newline
 DMS-REQ-0074:
 Difference Exposure Attributes \newline
 
-\subsection{Image Differencing}
-
-\label{DMS-L1-REQ-0035}
-\textbf{ID:} DMS-L1-REQ-0035 (Priority: 1b)
-
-\textbf{Specification:} The DMS shall provide software to perform image differencing, generating Difference Exposures from the comparison of single exposures and/or coadded images.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0032:
-Image Differencing \newline
-
-\subsection{Transient Alert Distribution}
-
-\label{DMS-L1-REQ-0001}
-\textbf{ID:} DMS-L1-REQ-0001 (Priority: 1b)
-
-\textbf{Specification:} Identified transient events shall be made available to end-users in the form of alerts, which shall be published to community alert distribution networks using community-standard protocols, to be determined during the LSST construction phase as community standards evolve.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0002:
-Transient Alert Distribution \newline
-
-\subsection{Alert Filtering Service}
-
-\label{DMS-L1-REQ-0030}
-\textbf{ID:} DMS-L1-REQ-0030 (Priority: 2)
-
-\textbf{Specification:} A basic, limited capacity, alert filtering service shall be provided that can be given user defined filters to reduce the alert stream to manageable levels.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0342:
-Alert Filtering Service \newline
-
-\subsubsection{Pre-defined alert filters}
-
-\label{DMS-L1-REQ-0031}
-\textbf{ID:} DMS-L1-REQ-0031 (Priority: 2)
-
-\textbf{Specification: }Users of the LSST Alert Filtering Service shall be able to use a predefined set of simple filters.
-
-\textbf{Discussion:} See LSR-REQ-0026
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0348:
-Pre-defined alert filters \newline
-
-\subsubsection{Performance Requirements for LSST Alert Filtering Service}
-
-\label{DMS-L1-REQ-0032}
-\textbf{ID:} DMS-L1-REQ-0032 (Priority: 2)
-
-\textbf{Specification:} The LSST alert filtering service shall support \textbf{numBrokerUsers} simultaneous users with each user allocated a bandwidth capable of receiving the equivalent of \textbf{numBrokerAlerts} alerts per visit.
-
-\textbf{Discussion:} The constraint on number of alerts is specified for the full VOEvent alert content, but could also be satisfied by all alerts being received with minimal alert content.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0343:
-Performance Requirements for LSST Alert Filtering Service \newline
-
-\subsection{Exposure Catalog}
+\paragraph{Exposure Catalog}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0015}
 \textbf{ID:} DMS-L1-REQ-0015 (Priority: 1a)
@@ -335,19 +243,7 @@ Performance Requirements for LSST Alert Filtering Service \newline
 DMS-REQ-0266:
 Exposure Catalog \newline
 
-\subsection{Provide Source Detection Software}
-
-\label{DMS-L1-REQ-0036}
-\textbf{ID:} DMS-L1-REQ-0036 (Priority: 1a)
-
-\textbf{Specification:} The DMS shall provide software for the detection of sources in a calibrated image, which may be a Difference Image or a Co-Add image.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0033:
-Provide Source Detection Software \newline
-
-\subsection{DIASource Catalog}
+\paragraph{DIASource Catalog}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0016}
 \textbf{ID:} DMS-L1-REQ-0016 (Priority: 1b)
@@ -359,61 +255,7 @@ Provide Source Detection Software \newline
 DMS-REQ-0269:
 DIASource Catalog \newline
 
-\subsection{Level 1 Data Product Access}
-
-\label{DMS-L1-REQ-0040}
-\textbf{ID:} DMS-L1-REQ-0040 (Priority: 1b)
-
-\textbf{Specification:} The DMS shall maintain a "live" Level 1 Database for query by science users, updated as a result of Alert Production processing.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0312:
-Level 1 Data Product Access \newline
-
-\subsection{Level 1 Source Association}
-
-\label{DMS-L1-REQ-0026}
-\textbf{ID:} DMS-L1-REQ-0026 (Priority: 1b)
-
-\textbf{Specification:} The DMS shall associate clusters of DIASources detected on multiple visits taken at different times with either a DIAObject or an SSObject.
-
-\textbf{Discussion: }The association will represent the underlying astrophysical phenomenon.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0285:
-Level 1 Source Association \newline
-
-\subsection{Maximum Likelihood Values and Covariances}
-
-\label{DMS-L1-REQ-0043}
-\textbf{ID:} DMS-L1-REQ-0043 (Priority: 1b)
-
-\textbf{Specification:} Quantities delivered by all measurement algorithms shall include maximum likelihood values and covariances.
-
-\textbf{Discussion:} Algorithms for which such values are impossible, will be documented explicitly to declare that the values are unavailable.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0333:
-Maximum Likelihood Values and Covariances \newline
-
-\subsection{Provide Calibrated Photometry}
-
-\label{DMS-L1-REQ-0038}
-\textbf{ID:} DMS-L1-REQ-0038 (Priority: 1a)
-
-\textbf{Specification:} The DMS shall provide calibrated photometry in each observed passband for all measured entities (e.g., DIASources, Sources, Objects), measuring the AB magnitude of the equivalent flat-SED source, above the atmosphere. Fluxes, possibly in jansky, shall be calculated for all measured entities.
-
-\textbf{Discussion: }Note that the SED is only assumed to be flat within the passband of the measurement.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0043:
-Provide Calibrated Photometry \newline
-
-\subsection{Faint DIASource Measurements}
+\paragraph{Faint DIASource Measurements}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0017}
 \textbf{ID:} DMS-L1-REQ-0017 (Priority: 2)
@@ -427,31 +269,7 @@ Provide Calibrated Photometry \newline
 DMS-REQ-0270:
 Faint DIASource Measurements \newline
 
-\subsection{Provide Astrometric Model}
-
-\label{DMS-L1-REQ-0037}
-\textbf{ID:} DMS-L1-REQ-0037 (Priority: 1b)
-
-\textbf{Specification:} An astrometric model shall be provided for every Object and DIAObject which specifies at least the proper motion and parallax, and the estimated uncertainties on these quantities.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0042:
-Provide Astrometric Model \newline
-
-\subsection{SSObject Precovery}
-
-\label{DMS-L1-REQ-0027}
-\textbf{ID:} DMS-L1-REQ-0027 (Priority: 2)
-
-\textbf{Specification:} Upon identifying a new SSObject, the DMS shall associate additional DIAObjects that are consistent with the orbital parameters (precovery), and update DIAObject entries so associated.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0286:
-SSObject Precovery \newline
-
-\subsection{Characterizing Variability}
+\paragraph{Characterizing Variability}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0021}
 \textbf{ID:} DMS-L1-REQ-0021 (Priority: 1b)
@@ -465,21 +283,7 @@ SSObject Precovery \newline
 DMS-REQ-0319:
 Characterizing Variability \newline
 
-\subsection{DIASource Precovery}
-
-\label{DMS-L1-REQ-0028}
-\textbf{ID:} DMS-L1-REQ-0028 (Priority: 1b)
-
-\textbf{Specification:} For all DIASources not associated with either DIAObjects or SSObjects, the DMS shall perform forced photometry at the location of the new source (precovery) on all Difference Exposures obtained in the prior \textbf{precoveryWindow}, and make the results publicly available within \textbf{L1PublicT}.
-
-\textbf{Discussion: }The \textbf{precoveryWindow }is intended to satisfy the most common scientific use cases (e.g., Supernovae), without placing an undue burden on the processing infrastructure.  For reasons of practicality and efficiency, \textbf{precoveryWindow }<= l\textbf{1CacheLifetime}.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0287:
-DIASource Precovery \newline
-
-\subsection{DIAObject Catalog}
+\paragraph{DIAObject Catalog}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0003}
 \textbf{ID:} DMS-L1-REQ-0003 (Priority: 1b)
@@ -491,7 +295,7 @@ DIASource Precovery \newline
 DMS-REQ-0271:
 DIAObject Catalog \newline
 
-\subsubsection{DIAObject Attributes}
+\subparagraph{DIAObject Attributes}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0004}
 \textbf{ID:} DMS-L1-REQ-0004 (Priority: 1b)
@@ -503,45 +307,7 @@ DIAObject Catalog \newline
 DMS-REQ-0272:
 DIAObject Attributes \newline
 
-\subsection{Enable a Range of Shape Measurement Approaches}
-
-\label{DMS-L1-REQ-0039}
-\textbf{ID:} DMS-L1-REQ-0039 (Priority: 1b)
-
-\textbf{Specification:} The DMS shall provide for the use of a variety of shape models on multiple kinds of input data to measure sources: measurement on coadds; measurement on coadds using information (e.g., PSFs) extracted from the individual exposures; measurement based on all the information from the individual Exposures simultaneously.
-
-\textbf{Discussion: }The most appropriate measurement model to apply depends upon the nature of the composite source.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0052:
-Enable a Range of Shape Measurement Approaches \newline
-
-\subsection{Use of External Orbit Catalogs}
-
-\label{DMS-L1-REQ-0029}
-\textbf{ID:} DMS-L1-REQ-0029 (Priority: 2)
-
-\textbf{Specification:} It shall be possible for DMS to make use of approved external catalogs and observations to improve the identification of SSObjects, and therefore increase the purity of the transient Alert stream in nightly processing.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0288:
-Use of External Orbit Catalogs \newline
-
-\subsection{Solar System Objects Available Within Specified Time}
-
-\label{DMS-L1-REQ-0023}
-\textbf{ID:} DMS-L1-REQ-0023 (Priority: 1b)
-
-\textbf{Specification:} Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time \textbf{L1PublicT }of their generation by the DMS.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0089:
-Solar System Objects Available Within Specified Time \newline
-
-\subsection{SSObject Catalog}
+\paragraph{SSObject Catalog}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0018}
 \textbf{ID:} DMS-L1-REQ-0018 (Priority: 2)
@@ -555,21 +321,7 @@ Solar System Objects Available Within Specified Time \newline
 DMS-REQ-0273:
 SSObject Catalog \newline
 
-\subsection{Generate Data Quality Report Within Specified Time}
-
-\label{DMS-L1-REQ-0024}
-\textbf{ID:} DMS-L1-REQ-0024 (Priority: 1a)
-
-\textbf{Specification:} The DMS shall generate a nightly Data Quality Report within time \textbf{dqReportComplTime }in both human-readable and machine-readable forms.
-
-\textbf{Discussion:} The Report must be timely in order to evaluate whether changes to hardware, software, or procedures are needed for the following night's observing.
-
-\emph{Derived from Requirements:}
-
-DMS-REQ-0096:
-Generate Data Quality Report Within Specified Time \newline
-
-\subsection{DIAForcedSource Catalog}
+\paragraph{DIAForcedSource Catalog}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0020}
 \textbf{ID:} DMS-L1-REQ-0020 (Priority: 2)
@@ -583,7 +335,7 @@ Generate Data Quality Report Within Specified Time \newline
 DMS-REQ-0317:
 DIAForcedSource Catalog \newline
 
-\subsection{Matching DIASources to Objects}
+\paragraph{Matching DIASources to Objects}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0022}
 \textbf{ID:} DMS-L1-REQ-0022 (Priority: 1b)
@@ -597,7 +349,7 @@ DIAForcedSource Catalog \newline
 DMS-REQ-0324:
 Matching DIASources to Objects \newline
 
-\subsection{Alert Content}
+\paragraph{Alert Content}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0019}
 \textbf{ID:} DMS-L1-REQ-0019 (Priority: 1b)
@@ -611,7 +363,7 @@ Matching DIASources to Objects \newline
 DMS-REQ-0274:
 Alert Content \newline
 
-\subsection{Level 1 Data Quality Report Definition}
+\paragraph{Level 1 Data Quality Report Definition}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0014}
 \textbf{ID:} DMS-L1-REQ-0014 (Priority: 1a)
@@ -625,7 +377,183 @@ Alert Content \newline
 DMS-REQ-0097:
 Level 1 Data Quality Report Definition \newline
 
-\subsection{Software Architecture to Enable Community Re-Use}
+\subsubsection{Special Programs}
+
+\paragraph{Level 1 Processing of Special Programs Data}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0041}
+\textbf{ID:} DMS-L1-REQ-0041 (Priority: 2)
+
+\textbf{Specification:} All Level 1 processing from special programs shall be completed before data arrives from the following night's observations.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0321:
+Level 1 Processing of Special Programs Data \newline
+
+\paragraph{Constraints on Level 1 Special Program Products Generation}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0045}
+\textbf{ID:} DMS-L1-REQ-0045 (Priority: 2)
+
+\textbf{Specification: }The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular \textbf{L1PublicT} and \textbf{OTT1}.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0344:
+Constraints on Level 1 Special Program Products Generation \newline
+
+\subsection{Productions}
+
+\subsubsection{Alert Production}
+
+\paragraph{Level-1 Production Completeness}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0025}
+\textbf{ID:} DMS-L1-REQ-0025 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall ensure that all images taken by the camera and marked for Level-1 processing are eventually retrieved, archived, and processed even in the event of connectivity failure between downstream Facilities.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0284:
+Level-1 Production Completeness \newline
+
+\paragraph{Transient Alert Distribution}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0001}
+\textbf{ID:} DMS-L1-REQ-0001 (Priority: 1b)
+
+\textbf{Specification:} Identified transient events shall be made available to end-users in the form of alerts, which shall be published to community alert distribution networks using community-standard protocols, to be determined during the LSST construction phase as community standards evolve.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0002:
+Transient Alert Distribution \newline
+
+\paragraph{Alert Filtering Service}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0030}
+\textbf{ID:} DMS-L1-REQ-0030 (Priority: 2)
+
+\textbf{Specification:} A basic, limited capacity, alert filtering service shall be provided that can be given user defined filters to reduce the alert stream to manageable levels.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0342:
+Alert Filtering Service \newline
+
+\subparagraph{Pre-defined alert filters}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0031}
+\textbf{ID:} DMS-L1-REQ-0031 (Priority: 2)
+
+\textbf{Specification: }Users of the LSST Alert Filtering Service shall be able to use a predefined set of simple filters.
+
+\textbf{Discussion:} See LSR-REQ-0026
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0348:
+Pre-defined alert filters \newline
+
+\subparagraph{Performance Requirements for LSST Alert Filtering Service}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0032}
+\textbf{ID:} DMS-L1-REQ-0032 (Priority: 2)
+
+\textbf{Specification:} The LSST alert filtering service shall support \textbf{numBrokerUsers} simultaneous users with each user allocated a bandwidth capable of receiving the equivalent of \textbf{numBrokerAlerts} alerts per visit.
+
+\textbf{Discussion:} The constraint on number of alerts is specified for the full VOEvent alert content, but could also be satisfied by all alerts being received with minimal alert content.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0343:
+Performance Requirements for LSST Alert Filtering Service \newline
+
+\paragraph{Level 1 Source Association}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0026}
+\textbf{ID:} DMS-L1-REQ-0026 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall associate clusters of DIASources detected on multiple visits taken at different times with either a DIAObject or an SSObject.
+
+\textbf{Discussion: }The association will represent the underlying astrophysical phenomenon.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0285:
+Level 1 Source Association \newline
+
+\paragraph{SSObject Precovery}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0027}
+\textbf{ID:} DMS-L1-REQ-0027 (Priority: 2)
+
+\textbf{Specification:} Upon identifying a new SSObject, the DMS shall associate additional DIAObjects that are consistent with the orbital parameters (precovery), and update DIAObject entries so associated.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0286:
+SSObject Precovery \newline
+
+\paragraph{DIASource Precovery}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0028}
+\textbf{ID:} DMS-L1-REQ-0028 (Priority: 1b)
+
+\textbf{Specification:} For all DIASources not associated with either DIAObjects or SSObjects, the DMS shall perform forced photometry at the location of the new source (precovery) on all Difference Exposures obtained in the prior \textbf{precoveryWindow}, and make the results publicly available within \textbf{L1PublicT}.
+
+\textbf{Discussion: }The \textbf{precoveryWindow }is intended to satisfy the most common scientific use cases (e.g., Supernovae), without placing an undue burden on the processing infrastructure.  For reasons of practicality and efficiency, \textbf{precoveryWindow }<= l\textbf{1CacheLifetime}.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0287:
+DIASource Precovery \newline
+
+\paragraph{Use of External Orbit Catalogs}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0029}
+\textbf{ID:} DMS-L1-REQ-0029 (Priority: 2)
+
+\textbf{Specification:} It shall be possible for DMS to make use of approved external catalogs and observations to improve the identification of SSObjects, and therefore increase the purity of the transient Alert stream in nightly processing.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0288:
+Use of External Orbit Catalogs \newline
+
+\paragraph{Solar System Objects Available Within Specified Time}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0023}
+\textbf{ID:} DMS-L1-REQ-0023 (Priority: 1b)
+
+\textbf{Specification:} Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time \textbf{L1PublicT }of their generation by the DMS.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0089:
+Solar System Objects Available Within Specified Time \newline
+
+\paragraph{Generate Data Quality Report Within Specified Time}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0024}
+\textbf{ID:} DMS-L1-REQ-0024 (Priority: 1a)
+
+\textbf{Specification:} The DMS shall generate a nightly Data Quality Report within time \textbf{dqReportComplTime }in both human-readable and machine-readable forms.
+
+\textbf{Discussion:} The Report must be timely in order to evaluate whether changes to hardware, software, or procedures are needed for the following night's observing.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0096:
+Generate Data Quality Report Within Specified Time \newline
+
+\subsection{Software}
+
+\subsubsection{General Considerations}
+
+\paragraph{Software Architecture to Enable Community Re-Use}\hfill  % Force subsequent text onto new line
 
 \label{DMS-L1-REQ-0033}
 \textbf{ID:} DMS-L1-REQ-0033 (Priority: 1b)
@@ -638,6 +566,100 @@ Level 1 Data Quality Report Definition \newline
 
 DMS-REQ-0308:
 Software Architecture to Enable Community Re-Use \newline
+
+\subsubsection{Applications Software}
+
+\paragraph{Simulated Data}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0034}
+\textbf{ID:} DMS-L1-REQ-0034 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall provide the ability to inject artificial or simulated data into data products to assess the functional and temporal performance of the production processing software.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0009:
+Simulated Data \newline
+
+\paragraph{Image Differencing}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0035}
+\textbf{ID:} DMS-L1-REQ-0035 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall provide software to perform image differencing, generating Difference Exposures from the comparison of single exposures and/or coadded images.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0032:
+Image Differencing \newline
+
+\paragraph{Provide Source Detection Software}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0036}
+\textbf{ID:} DMS-L1-REQ-0036 (Priority: 1a)
+
+\textbf{Specification:} The DMS shall provide software for the detection of sources in a calibrated image, which may be a Difference Image or a Co-Add image.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0033:
+Provide Source Detection Software \newline
+
+\paragraph{Provide Calibrated Photometry}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0038}
+\textbf{ID:} DMS-L1-REQ-0038 (Priority: 1a)
+
+\textbf{Specification:} The DMS shall provide calibrated photometry in each observed passband for all measured entities (e.g., DIASources, Sources, Objects), measuring the AB magnitude of the equivalent flat-SED source, above the atmosphere. Fluxes, possibly in jansky, shall be calculated for all measured entities.
+
+\textbf{Discussion: }Note that the SED is only assumed to be flat within the passband of the measurement.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0043:
+Provide Calibrated Photometry \newline
+
+\paragraph{Provide Astrometric Model}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0037}
+\textbf{ID:} DMS-L1-REQ-0037 (Priority: 1b)
+
+\textbf{Specification:} An astrometric model shall be provided for every Object and DIAObject which specifies at least the proper motion and parallax, and the estimated uncertainties on these quantities.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0042:
+Provide Astrometric Model \newline
+
+\paragraph{Enable a Range of Shape Measurement Approaches}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0039}
+\textbf{ID:} DMS-L1-REQ-0039 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall provide for the use of a variety of shape models on multiple kinds of input data to measure sources: measurement on coadds; measurement on coadds using information (e.g., PSFs) extracted from the individual exposures; measurement based on all the information from the individual Exposures simultaneously.
+
+\textbf{Discussion: }The most appropriate measurement model to apply depends upon the nature of the composite source.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0052:
+Enable a Range of Shape Measurement Approaches \newline
+
+\subsection{Facilities}
+
+\subsubsection{Data Archive}
+
+\paragraph{Level 1 Data Product Access}\hfill  % Force subsequent text onto new line
+
+\label{DMS-L1-REQ-0040}
+\textbf{ID:} DMS-L1-REQ-0040 (Priority: 1b)
+
+\textbf{Specification:} The DMS shall maintain a "live" Level 1 Database for query by science users, updated as a result of Alert Production processing.
+
+\emph{Derived from Requirements:}
+
+DMS-REQ-0312:
+Level 1 Data Product Access \newline
 
 \addendum
 
